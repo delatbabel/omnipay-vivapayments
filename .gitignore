@@ -1,0 +1,9 @@
+.directory
+/documents
+/reports
+/vendor
+/.idea/
+dirlist.app
+dirlist.cache
+dirlist.vendor
+composer.lock

@@ -1,0 +1,42 @@
+{
+    "name": "delatbabel/omnipay-vivapayments",
+    "type": "library",
+    "description": "Viva Payments (Greece) driver for the Omnipay payment processing library",
+    "keywords": [
+        "viva",
+        "payments",
+        "vivapayments",
+        "greece",
+        "gateway",
+        "merchant",
+        "omnipay",
+        "pay",
+        "payment"
+    ],
+    "homepage": "https://github.com/delatbabel/omnipay-vivapayments",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Del",
+            "email": "del@babel.com.au"
+        }
+    ],
+    "autoload": {
+        "psr-4": { "Omnipay\\VivaPayments\\" : "src/" }
+    },
+    "require": {
+        "php": ">=5.3.0",
+        "omnipay/common": "~2.0"
+    },
+    "require-dev": {
+        "omnipay/tests": "~2.0",
+        "omnipay/dummy": "dev-master",
+        "apigen/apigen": "^4.1",
+        "nette/utils": "~2.3.0"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.0.x-dev"
+        }
+    }
+}
