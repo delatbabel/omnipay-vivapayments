@@ -43,4 +43,15 @@ class RedirectGateway extends RestGateway
     {
         return $this->createRequest('\Omnipay\VivaPayments\Message\RedirectPurchaseRequest', $parameters);
     }
+
+    /**
+     * Create an authorize request.
+     *
+     * @param array $parameters
+     * @return \Omnipay\VivaPayments\Message\RedirectAuthorizeRequest
+     */
+    public function authorize(array $parameters = array())
+    {
+        return $this->createRequest('\Omnipay\VivaPayments\Message\RedirectAuthorizeRequest', $parameters);
+    }
 }

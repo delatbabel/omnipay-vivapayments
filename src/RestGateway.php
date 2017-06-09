@@ -109,11 +109,15 @@ use Omnipay\Common\AbstractGateway;
  * * There is no separate void() method.  The refund() method assumes a void() call
  *   is being made if it is within the same day as the transaction was created.  In
  *   this case the refund amount must exactly equal the transaction amount.
+ * * There is an authorize() transaction but there is no capture() transaction.
+ *   Pre-authorized amounts stay on hold until they are cancelled or time out (up to 30 days).
  *
  * ### TODO
  *
  * * This gateway code is unfinished.  It doesn't cover all of the methods of the Viva
  *   Payments API described in the API wiki.
+ * * I have no test cases for the Native gateway because it requires an application to
+ *   be set up to run the basic tests.
  *
  * @see \Omnipay\Common\AbstractGateway
  * @see \Omnipay\VivaPayments\Message\AbstractRestRequest

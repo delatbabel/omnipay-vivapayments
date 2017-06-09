@@ -41,4 +41,15 @@ class NativeGateway extends RestGateway
     {
         return $this->createRequest('\Omnipay\VivaPayments\Message\NativePurchaseRequest', $parameters);
     }
+
+    /**
+     * Create an authorize request.
+     *
+     * @param array $parameters
+     * @return \Omnipay\VivaPayments\Message\NativeAuthorizeRequest
+     */
+    public function authorize(array $parameters = array())
+    {
+        return $this->createRequest('\Omnipay\VivaPayments\Message\NativeAuthorizeRequest', $parameters);
+    }
 }
