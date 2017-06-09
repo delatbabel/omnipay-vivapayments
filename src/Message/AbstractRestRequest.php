@@ -246,12 +246,14 @@ abstract class AbstractRestRequest extends \Omnipay\Common\Message\AbstractReque
         $httpResponse = $httpRequest->send();
 
         // HTTP Response raw data used for making mocks
+        /*
         echo "HTTP Raw Headers\n\n";
         echo $httpResponse->getRawHeaders();
         echo "\n\n";
         echo "HTTP Raw Body\n\n";
         echo $httpResponse->getBody(true);
         echo "\n\n";
+        */
 
         // Get body parsed from JSON if it's not empty
         $rawBody = $httpResponse->getBody(true);

@@ -1,0 +1,13 @@
+HTTP/1.1 200 OK
+Server: nginx/1.4.6 (Ubuntu)
+Date: Fri, 09 Jun 2017 09:38:03 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 1469
+Connection: keep-alive
+Vary: Accept-Encoding
+Cache-Control: no-cache
+Pragma: no-cache
+Expires: -1
+X-Viva-CorrelationId: 17-160-47A90740
+
+{"Transactions":[{"Fee":0.00,"ParentId":null,"Amount":10.00,"StatusId":"X","ChannelId":"d84f93ff-8ad0-4d97-a7a3-f187dd667553","MerchantId":"ac333b36-ec40-4a93-9217-5d5324311e71","ResellerId":null,"InsDate":"2017-06-09T11:56:50.543","CreatedBy":null,"SourceCode":"Default","TransactionId":"1313495f-cd9e-48bc-8bfc-ee4903cfb308","Commission":0.48,"MerchantTrns":"TestPurchaseTransaction939815","CustomerTrns":"This is a test purchase transaction.","IsManualRefund":false,"TargetPersonId":null,"AuthorizationId":"612132","TotalInstallments":0,"CurrentInstallment":0,"ClearanceDate":null,"ResellerSourceCode":null,"RetrievalReferenceNumber":"000001021001","Order":{"OrderCode":6161527906472604,"ChannelId":"95d02b56-bace-4608-ad1b-c1a8da705e52","ResellerId":null,"SourceCode":"Default","Tags":[],"RequestLang":"en-US","ResellerSourceCode":null},"Payment":{"Email":"customer@example.com","Phone":"1234123412","ChannelId":"d84f93ff-8ad0-4d97-a7a3-f187dd667553","FullName":"Test Customer","Installments":0,"RecurringSupport":false},"TransactionType":{"Name":"ChargeCard","TransactionTypeId":5},"CreditCard":{"Token":"B6D3CC438671F16B211D83BBC077FEBD843CBC28","Number":"411111XXXXXX1111","CountryCode":"GR","IssuingBank":"Demo Bank","CardHolderName":"Test Customer","ExpirationDate":"2020-01-31T00:00:00","CardType":{"Name":"VISA","CardTypeId":0}}}],"ErrorCode":0,"ErrorText":null,"TimeStamp":"2017-06-09T12:38:03.8868698+03:00","CorrelationId":null,"EventId":0,"Success":true}

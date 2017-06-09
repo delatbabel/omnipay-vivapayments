@@ -8,63 +8,43 @@ namespace Omnipay\VivaPayments\Message;
 /**
  * Viva Payments (REST) Refund Request
  *
- * To complete a redirect payment is a 3 step process.  The explanation is at
- * this link: https://github.com/VivaPayments/API/wiki/Redirect-Checkout
+ * This method allows you to:
  *
- * ### 1. Creation of the Payment Order
- *
- * The code in this gateway plugin completes the payment order using the
- * /api/orders endpoint.
- *
- * ### 2. Completion of the Payment Details (Redirection)
- *
- * This is done by redirecting the customer to the Viva checkout page.
- *
- * ### 3. Confirmation of the Transaction
- *
- * The customer lands back on your website at the URL defined in your vivapayments.com
- * account under the Sources section.  There is no completePurchase() call required.
+ * * Cancel a card payment occurred within the same business day (before 22:00 GMT+2).
+ * * Make a partial or full refund of a successful payment that has already been cleared.
  *
  * ### Example
  *
+ * This example assumes that the payment is successful and the transaction ID is stored
+ * in $transaction_id
+ *
  * <code>
- * // Create a gateway for the Viva Payments REST Gateway
- * // (routes to GatewayFactory::create)
- * $gateway = Omnipay::create('VivaPayments_Redirect');
- *
- * // Initialise the gateway
- * $gateway->initialize(array(
- *     'merchantId'   => 'TEST',
- *     'apiKey'       => 'TEST',
- *     'testMode'     => true, // Or false when you are ready for live transactions
- * ));
- *
- * // Do a purchase transaction on the gateway
- * $transaction = $gateway->purchase(array(
- *     'amount'                   => '10.00',
- *     'transactionId'            => 'TestPurchaseTransaction123456',
- *     'clientIp'                 => $_SERVER['REMOTE_ADDR'],
- *     'cardReference'            => $card_reference,
+ * $transaction = $gateway->refund(array(
+ *     'amount'                => '10.00',
+ *     'transactionReference'  => $transaction_id,
  * ));
  * $response = $transaction->send();
- *
- * // For a Redirect gateway request
- * if ($response->isRedirect()) {
- *     echo "Gateway response is a redirect.\n";
- *
- *     $redirect_url = $response->getRedirectUrl();
- *     echo "Redirect URL = $redirect_url\n";
- *     $sale_id = $response->getTransactionReference();
- *     echo "Transaction reference = " . $sale_id . "\n";
+ * if ($response->isSuccessful()) {
+ *     $refund_id = $response->getTransactionReference();
+ *     echo "Refund transaction successful.\n";
+ *     echo "Refund transaction reference = " . $refund_id . "\n";
+ * } else {
+ *     echo "Refund transaction failed.\n";
+ *     echo "Error code == " . $response->getCode() . "\n";
+ *     echo "Error message == " . $response->getMessage() . "\n";
  * }
  * </code>
  *
- * At the completion of this code the customer needs to be redirected to $redirect_url
+ * ### Quirks
+ *
+ * * If this refund request is happening on the same day, the gateway assumes that
+ *   the card payment is being cancelled, and the refund amount must exactly match
+ *   the payment amount, or an error will be thrown.
  *
  * @see Omnipay\VivaPayments\RestGateway
  * @link https://github.com/VivaPayments/API/wiki
  * @link https://www.vivawallet.com/en-us/company
- * @link https://github.com/VivaPayments/API/wiki/Redirect-Checkout
+ * @link https://github.com/VivaPayments/API/wiki/CancelTransaction
  */
 class RefundRequest extends AbstractRestRequest
 {

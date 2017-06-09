@@ -191,4 +191,15 @@ abstract class RestGateway extends AbstractGateway
     {
         return $this->createRequest('\Omnipay\VivaPayments\Message\RefundRequest', $parameters);
     }
+
+    /**
+     * Create a fetch transactions request.
+     *
+     * @param array $parameters
+     * @return \Omnipay\VivaPayments\Message\FetchTransactionsRequest
+     */
+    public function fetchTransactions(array $parameters = array())
+    {
+        return $this->createRequest('\Omnipay\VivaPayments\Message\FetchTransactionsRequest', $parameters);
+    }
 }

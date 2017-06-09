@@ -101,4 +101,19 @@ class RedirectGatewayTest extends GatewayTestCase
         $this->assertEquals(403, $response->getCode());
         $this->assertEquals('Non reversible transaction', $response->getMessage());
     }
+
+    public function testFetchTransactions()
+    {
+        $this->setMockHttpResponse('FetchTransactionsSuccess.txt');
+
+        $response = $this->gateway->fetchTransactions(array(
+            'transactionReference'  => "1313495f-cd9e-48bc-8bfc-ee4903cfb308",
+        ))->send();
+
+        $this->assertTrue($response->isSuccessful());
+        $this->assertFalse($response->isRedirect());
+        $this->assertEmpty($response->getMessage());
+        $this->assertEmpty($response->getCode());
+        $this->assertArrayHasKey('Transactions', $response->getData());
+    }
 }

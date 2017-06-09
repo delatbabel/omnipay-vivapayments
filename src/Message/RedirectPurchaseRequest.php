@@ -46,7 +46,6 @@ use Omnipay\Common\Message\RequestInterface;
  *     'amount'                   => '10.00',
  *     'transactionId'            => 'TestPurchaseTransaction123456',
  *     'clientIp'                 => $_SERVER['REMOTE_ADDR'],
- *     'cardReference'            => $card_reference,
  * ));
  * $response = $transaction->send();
  *
