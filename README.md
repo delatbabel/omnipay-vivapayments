@@ -3,6 +3,7 @@
 **VivaPayments driver for the Omnipay PHP payment processing library**
 
 [![Build Status](https://travis-ci.org/delatbabel/omnipay-vivapayments.png?branch=master)](https://travis-ci.org/delatbabel/omnipay-vivapayments)
+[![StyleCI](https://styleci.io/repos/93733234/shield)](https://styleci.io/repos/93733234)
 
 [Omnipay](https://github.com/omnipay/omnipay) is a framework agnostic, multi-gateway payment
 processing library for PHP 5.3+. This package implements VivaPayments support for Omnipay.
