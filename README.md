@@ -67,7 +67,9 @@ repository.
 * There is no separate void() method.  The refund() method assumes a void() call
   is being made if it is within the same day as the transaction was created.  In
   this case the refund amount must exactly equal the transaction amount.
-
+* There is an authorize() transaction but there is no capture() transaction.
+  Pre-authorized amounts stay on hold until they are cancelled or time out (up to 30 days).
+ 
 For all other documentation, usage examples, etc, see the documentation in the class
 docblocks.
 
