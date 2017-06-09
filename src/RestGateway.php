@@ -96,7 +96,7 @@ use Omnipay\Common\AbstractGateway;
  * * Direct card payments are not supported.  Either a JS plugin is required
  *   (Native gateway) which creates a card reference, or a redirect is required
  *   (Redirect gateway).
- * * It is impossible to tell from the gatway response whether the transaction
+ * * It is impossible to tell from the gateway response whether the transaction
  *   requires a redirect or not.  It's only possible to tell from the type of
  *   request made.  So I have created separate gateway classes for the different
  *   types of purchase request (Native vs Redirect) which will return different

@@ -20,11 +20,12 @@ class RedirectResponse extends RestResponse implements RedirectResponseInterface
     /** @var string  */
     protected $baseEndpoint;
 
-    public function __construct(RequestInterface $request,
+    public function __construct(
+        RequestInterface $request,
         $data,
         $statusCode = 200,
-        $baseEndpoint = "http://demo.vivapayments.com")
-    {
+        $baseEndpoint = "http://demo.vivapayments.com"
+    ) {
         parent::__construct($request, $data, $statusCode);
         $this->baseEndpoint = $baseEndpoint;
     }
