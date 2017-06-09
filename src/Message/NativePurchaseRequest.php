@@ -102,7 +102,6 @@ class NativePurchaseRequest extends AbstractRestRequest
                 ),
             );
             return array_merge($data, parent::getData());
-
         } else {
             $data = array(
                 'Amount'        => $this->getAmountInteger(),
@@ -138,7 +137,7 @@ class NativePurchaseRequest extends AbstractRestRequest
     public function send()
     {
         // Call 1 -- create order
-        $data = $this->getData();
+        $data     = $this->getData();
         $response = $this->sendData($data);
         if (! $response->isSuccessful()) {
             return $response;
