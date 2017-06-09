@@ -44,6 +44,33 @@ but this is not intended to be instantiated separately.
 For general usage instructions, please see the main [Omnipay](https://github.com/omnipay/omnipay)
 repository.
 
+### Quirks
+
+* All payments are in Euros (EUR). No other currency is supported.
+* Creating a purchase is a two step process.  Firstly there needs to be
+  an order created.  Then, depending on the gateway (Redirect vs REST),
+  either the customer is redirected to the gateway or further customer
+  information is provided by a second REST call.
+* Direct card payments are not supported.  Either a JS plugin is required
+  (Native gateway) which creates a card reference, or a redirect is required
+  (Redirect gateway).
+* It is impossible to tell from the gateway response whether the transaction
+  requires a redirect or not.  It's only possible to tell from the type of
+  request made.  So I have created separate gateway classes for the different
+  types of purchase request (Native vs Redirect) which will return different
+  types of response.
+* When making a redirect payment, upon completion of the checkout form, the
+  customer is redirected back to your website. The redirection URLs are defined
+  in your vivapayments.com account under the Sources section.  You cannot provide
+  a per-transaction returnUrl or cancelUrl parameter to redirect each transaction
+  to a different URL as can be done in some gateways.
+* There is no separate void() method.  The refund() method assumes a void() call
+  is being made if it is within the same day as the transaction was created.  In
+  this case the refund amount must exactly equal the transaction amount.
+
+For all other documentation, usage examples, etc, see the documentation in the class
+docblocks.
+
 ## Support
 
 If you are having general issues with Omnipay, we suggest posting on

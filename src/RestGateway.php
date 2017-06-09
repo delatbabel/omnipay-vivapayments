@@ -106,6 +106,9 @@ use Omnipay\Common\AbstractGateway;
  *   in your vivapayments.com account under the Sources section.  You cannot provide
  *   a per-transaction returnUrl or cancelUrl parameter to redirect each transaction
  *   to a different URL as can be done in some gateways.
+ * * There is no separate void() method.  The refund() method assumes a void() call
+ *   is being made if it is within the same day as the transaction was created.  In
+ *   this case the refund amount must exactly equal the transaction amount.
  *
  * ### TODO
  *
