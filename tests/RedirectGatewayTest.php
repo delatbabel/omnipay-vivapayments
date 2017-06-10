@@ -25,14 +25,6 @@ class RedirectGatewayTest extends GatewayTestCase
             'testMode'      => true,
         ));
 
-        $this->card = new CreditCard(array(
-            'firstName' => 'Example',
-            'lastName' => 'User',
-            'number' => '4111111111111111',
-            'expiryMonth' => '12',
-            'expiryYear' => '2020',
-            'cvv' => '123',
-        ));
         $this->options = array(
             'amount'                   => '10.00',
             'currency'                 => 'EUR',
