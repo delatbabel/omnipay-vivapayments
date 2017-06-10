@@ -44,6 +44,15 @@ but this is not intended to be instantiated separately.
 For general usage instructions, please see the main [Omnipay](https://github.com/omnipay/omnipay)
 repository.
 
+## Documentation
+
+For all documentation, usage examples, etc, see the documentation in the class
+docblocks.
+
+There is a copy of the documentation online here (not necessarily up to date):
+
+https://www.babel.com.au/docs/omnipay-vivapayments/namespace-Omnipay.VivaPayments.html
+
 ### Quirks
 
 * All payments are in Euros (EUR). No other currency is supported.
@@ -69,9 +78,6 @@ repository.
   this case the refund amount must exactly equal the transaction amount.
 * There is an authorize() transaction but there is no capture() transaction.
   Pre-authorized amounts stay on hold until they are cancelled or time out (up to 30 days).
- 
-For all other documentation, usage examples, etc, see the documentation in the class
-docblocks.
 
 ## Support
 
